@@ -9,7 +9,7 @@ function App() {
     const data = await res.json()
     setTodos(data)
   }
-  
+
   useEffect(() => {
     fetchTodos()
   }, [])
@@ -43,9 +43,13 @@ function App() {
     fetchTodos()
   }
 
+  
   return (
     <div style={{ maxWidth: 600, margin: '40px auto', fontFamily: 'sans-serif' }}>
       <h1>Ma TODO List</h1>
+      <button onClick={() => { throw new Error('Test Sentry React!') }}>
+        Test Sentry
+      </button>
       <div style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
         <input
           value={title}
