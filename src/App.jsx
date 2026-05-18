@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import * as Sentry from '@sentry/react'
 
 function App() {
   const [todos, setTodos] = useState([])
@@ -47,7 +48,7 @@ function App() {
   return (
     <div style={{ maxWidth: 600, margin: '40px auto', fontFamily: 'sans-serif' }}>
       <h1>Ma TODO List</h1>
-      <button onClick={() => { throw new Error('Test Sentry React!') }}>
+      <button onClick={() => Sentry.captureException(new Error('Test Sentry React!'))}>
         Test Sentry
       </button>
       <div style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
