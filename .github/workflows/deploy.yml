@@ -26,6 +26,8 @@ jobs:
 
       - name: Build de l'application
         run: npm run build
+        env:
+          VITE_API_URL: https://todo-back-pjbk.onrender.com
 
       - name: Uploader l'artefact de build
         uses: actions/upload-pages-artifact@v3
